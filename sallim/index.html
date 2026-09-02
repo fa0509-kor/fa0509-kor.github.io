@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>살림 — 오래 쓸 물건</title>
+  <meta name="description" content="물건 여섯 가지를 실물 그대로 3D로 돌려보는 셀렉트숍 — 인터랙티브 웹 제작 데모" />
+  <meta property="og:title" content="살림 — 오래 쓸 물건" />
+  <meta property="og:description" content="상품을 실물 그대로 3D로 돌려보는 셀렉트숍 페이지 데모" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8F%BA%3C/text%3E%3C/svg%3E" />
+  <script type="module" crossorigin src="./assets/index-DQ4dusU3.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BNuS4jTD.css">
+</head>
+<body>
+  <div id="loader" aria-hidden="true">
+    <div class="loader-mark">살림</div>
+    <div class="loader-bar"><span id="loader-fill"></span></div>
+    <div class="loader-pct" id="loader-pct">0%</div>
+  </div>
+
+  <!-- 사진급 스틸 레이어 (Cycles 경로추적 렌더) -->
+  <div id="stills" aria-hidden="true">
+    <img class="still" data-key="hero"    src="./stills/hero.jpg"          alt="" />
+    <img class="still" data-key="leather" src="./stills/macro_leather.jpg" alt="" />
+    <img class="still" data-key="blue"    src="./stills/macro_blue.jpg"    alt="" />
+    <img class="still" data-key="contact" src="./stills/macro_weave.jpg"   alt="" />
+    <!-- 3D 뷰어 뒤에 깔리는 배경판 — 화면에 직접 노출되지 않는다 -->
+    <img class="still" data-key="plate"   src="./stills/plate.jpg"         alt="" style="display:none" />
+  </div>
+
+  <!-- 실시간 3D 캔버스 (뷰어 구간에서만 떠오른다) -->
+  <canvas id="stage" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <div class="nav-brand">살림 <span class="nav-sub">SELECT SHOP SALLIM</span></div>
+    <div class="nav-right">
+      <span class="badge-demo">DEMO</span>
+      <a class="nav-cta" href="#contact">문의</a>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- 1. 히어로 -->
+    <section class="panel hero" data-cam="hero">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">SELECT SHOP</p>
+        <h1>오래 쓸 것만<br /><em>여섯</em>을 골랐습니다</h1>
+        <p class="lede">살림은 물건을 자주 바꾸지 않는 가게입니다.
+        대신 고른 것을 오래 팝니다.<br />아래로 내리면 물건을 직접 돌려볼 수 있습니다.</p>
+        <div class="scroll-hint" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <!-- 2. 왜 3D 인가 (솔리드 다크) -->
+    <section class="panel panel-solid panel-dark" data-cam="about">
+      <div class="solid-inner" data-reveal>
+        <p class="eyebrow">WHY 3D</p>
+        <h2 data-fill>사진으로는<br />못 믿는 게 있으니까요</h2>
+        <p class="solid-lede">쇼핑몰 사진은 잘 나온 각도만 보여줍니다.
+        저희는 실물을 그대로 3D로 떠서 올립니다.
+        뒷면도, 바닥도, 쓰던 자국도 다 보입니다.</p>
+        <div class="stats">
+          <div class="stat"><p class="stat-num">6<span>가지</span></p><p class="stat-label">지금 파는 물건 전부입니다</p></div>
+          <div class="stat"><p class="stat-num">360<span>°</span></p><p class="stat-label">숨긴 각도가 없습니다</p></div>
+          <div class="stat"><p class="stat-num">1:1</p><p class="stat-label">실물 치수를 그대로 옮겼습니다</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 상품 목록 (솔리드 라이트) -->
+    <section class="panel panel-solid panel-light" data-cam="collection">
+      <div class="solid-wide" data-reveal>
+        <p class="eyebrow">COLLECTION</p>
+        <h2 data-fill>지금 있는 물건</h2>
+        <div class="grid-products">
+          <button class="p-card" data-product="chair">
+            <img src="./stills/thumb_chair.jpg" alt="가죽 라운지체어" />
+            <span class="p-tag">3D</span>
+            <p class="p-name">가죽 라운지체어</p>
+            <p class="p-meta">W101 · D119 · H117</p>
+            <p class="p-price">1,890,000원</p>
+          </button>
+          <button class="p-card" data-product="basket">
+            <img src="./stills/thumb_basket.jpg" alt="라탄 뚜껑 바구니" />
+            <span class="p-tag">3D</span>
+            <p class="p-name">라탄 뚜껑 바구니</p>
+            <p class="p-meta">W37 · D27 · H22</p>
+            <p class="p-price">68,000원</p>
+          </button>
+          <button class="p-card" data-product="jar">
+            <img src="./stills/thumb_jar.jpg" alt="청화 항아리" />
+            <span class="p-tag">3D</span>
+            <p class="p-name">청화 항아리</p>
+            <p class="p-meta">H44 · 입지름 26</p>
+            <p class="p-price">240,000원</p>
+          </button>
+          <button class="p-card" data-product="">
+            <img src="./stills/thumb_table.jpg" alt="원목 사이드 테이블" />
+            <p class="p-name">원목 사이드 테이블</p>
+            <p class="p-meta">W55 · D45 · H55</p>
+            <p class="p-price">320,000원</p>
+          </button>
+          <button class="p-card" data-product="">
+            <img src="./stills/thumb_lamp.jpg" alt="주황 암 램프" />
+            <p class="p-name">주황 암 램프</p>
+            <p class="p-meta">H88 · 조인트 2곳</p>
+            <p class="p-price">145,000원</p>
+          </button>
+          <button class="p-card" data-product="">
+            <img src="./stills/thumb_vase.jpg" alt="백자 화병" />
+            <p class="p-name">백자 화병</p>
+            <p class="p-meta">H40 · 입지름 8</p>
+            <p class="p-price">88,000원</p>
+          </button>
+        </div>
+        <p class="grid-note">3D 표시가 있는 물건은 누르면 바로 돌려볼 수 있습니다.</p>
+      </div>
+    </section>
+
+    <!-- 4. 3D 뷰어 -->
+    <section class="panel configurator" data-cam="config" id="viewer">
+      <div class="config-ui" data-reveal>
+        <p class="eyebrow">360° VIEW</p>
+        <h2>천천히<br />돌려보세요</h2>
+        <p class="config-help"><strong>드래그해서</strong> 돌리고, 위아래로도 기울여 보세요.
+        확대는 매장에서 실물로 보여드리는 게 빠릅니다.</p>
+        <div class="config-group">
+          <p class="config-label">물건 바꾸기</p>
+          <div class="chip-row" id="product-buttons"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 가죽 -->
+    <section class="panel" data-cam="leather">
+      <div class="card card-left" data-reveal>
+        <p class="eyebrow">LEATHER</p>
+        <h2>앉은 자국까지<br />그대로 팝니다</h2>
+        <p>이 의자는 새것이 아닙니다. 수십 년 쓰인 미드센추리 체어를
+        손봐서 내놓았습니다. 가죽 주름은 흠이 아니라 이 의자가
+        지나온 시간이라고 생각합니다.</p>
+      </div>
+    </section>
+
+    <!-- 6. 도기 -->
+    <section class="panel" data-cam="blue">
+      <div class="card card-right" data-reveal>
+        <p class="eyebrow">CERAMIC</p>
+        <h2>같은 것이 없는<br />무늬</h2>
+        <p>청화 항아리는 유약 밑에 가는 금이 있습니다.
+        가마에서 식을 때 생기는 잔금이라 두 점이 같을 수가 없습니다.
+        3D로 돌려보면 그 금까지 보입니다.</p>
+      </div>
+    </section>
+
+    <!-- 7. 안내·문의 -->
+    <section class="panel" data-cam="contact" id="contact">
+      <div class="specs-wrap">
+        <div class="card card-specs" data-reveal>
+          <p class="eyebrow">SHOP</p>
+          <h2>살림</h2>
+          <table class="specs">
+            <tr><th>취급</th><td>가구 · 도기 · 생활 소품</td></tr>
+            <tr><th>구성</th><td>여섯 가지 · 소량 입고</td></tr>
+            <tr><th>배송</th><td>전 제품 직접 포장</td></tr>
+            <tr><th>교환</th><td>수령 후 7일 안에</td></tr>
+            <tr><th>문의</th><td>전화보다 메일이 빠릅니다</td></tr>
+          </table>
+          <div class="cta-block">
+            <p class="cta-note">이런 상품 페이지가 필요하신가요?<br />
+            갖고 계신 상품의 3D까지 만들어 드립니다.</p>
+            <a class="cta" href="mailto:fa0509@naver.com?subject=%EC%85%80%EB%A0%89%ED%8A%B8%EC%88%8D%20%ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%A0%9C%EC%9E%91%20%EB%AC%B8%EC%9D%98">이런 페이지 만들기 · 문의</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>살림은 인터랙티브 웹 제작 데모를 위한 <strong>가상의 셀렉트숍</strong>입니다.
+    실존하는 어떤 가게와도 무관하며, 실제로 구매할 수 없습니다.
+    가격·재고·안내 문구는 데모용 허구입니다.</p>
+    <p class="foot-lic">3D 모델: Poly Haven 실물 스캔 (CC0) · 상세는 저장소의 LICENSE.md 에 기록</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>비움 BIUM — 음식물처리기 원</title>
+  <meta name="description" content="냄새도 소리도 없이. 건조분쇄식 음식물처리기 비움 원 — 인터랙티브 웹 제작 데모" />
+  <meta property="og:title" content="비움 BIUM — 음식물처리기 원" />
+  <meta property="og:description" content="스크롤이 카메라를 움직이고, 뚜껑이 열리고, 고객이 색을 고르는 인터랙티브 3D 제품 페이지 데모" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%E2%99%BB%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+  <script type="module" crossorigin src="./assets/index-DSD5mAGS.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CXAmk-GV.css">
+</head>
+<body>
+  <!-- 로딩 -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-mark">비움</div>
+    <div class="loader-bar"><span id="loader-fill"></span></div>
+    <div class="loader-pct" id="loader-pct">0%</div>
+  </div>
+
+  <!-- 사진급 스틸 레이어 (Cycles 경로추적 렌더) -->
+  <div id="stills" aria-hidden="true">
+    <img class="still" data-key="hero"   src="./stills/hero.jpg"   alt="" />
+    <img class="still" data-key="night"  src="./stills/night.jpg"  alt="" />
+    <img class="still" data-key="craft"  src="./stills/quiet.jpg"  alt="" />
+    <img class="still" data-key="detail" src="./stills/inside.jpg" alt="" />
+    <img class="still" data-key="specs"  src="./stills/rear.jpg"   alt="" />
+    <!-- 컨피규레이터 배경판 — 화면엔 직접 안 나오고 3D 씬의 배경 텍스처로 쓰인다 -->
+    <img class="still" data-key="config" src="./stills/config.jpg" alt="" />
+  </div>
+
+  <!-- 실시간 3D 캔버스 (컨피규레이터 구간에서만 등장) -->
+  <canvas id="stage" aria-hidden="true"></canvas>
+
+  <!-- 네비 -->
+  <header class="nav">
+    <div class="nav-brand">비움 <span class="nav-sub">BIUM APPLIANCE</span></div>
+    <div class="nav-right">
+      <span class="badge-demo">DEMO</span>
+      <a class="nav-cta" href="#contact">문의</a>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- 1. 히어로 -->
+    <section class="panel hero" data-cam="hero">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">FOOD CYCLER — ONE</p>
+        <h1>버리는 일을<br /><em>비움</em>이 합니다</h1>
+        <p class="lede">냄새도, 무게도, 버리러 나가는 새벽도 없앴습니다.<br />스크롤을 내리면 제품이 움직입니다.</p>
+        <div class="scroll-hint" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <!-- 2. 새벽 (어두운 섹션) -->
+    <section class="panel" data-cam="night">
+      <div class="card card-right card-night" data-reveal>
+        <p class="eyebrow">QUIET — 19dB</p>
+        <h2>새벽 두 시,<br />옆방은 모릅니다</h2>
+        <p>도서관보다 조용한 19dB라서 새벽에 돌려도 잠을 깨우지
+        않습니다. 모터를 천천히 돌리는 대신 밤새 시간을 들여
+        말리고 갈아냅니다. 앰버 링이 켜져 있으면 일하는 중입니다.</p>
+      </div>
+    </section>
+
+    <!-- 3. 디테일 매크로 -->
+    <section class="panel" data-cam="craft">
+      <div class="card card-left" data-reveal>
+        <p class="eyebrow">DETAIL</p>
+        <h2>가까이 볼수록<br />마감이 보입니다</h2>
+        <p>무광 바디에는 손자국이 남지 않도록 미세한 요철을 넣었습니다.
+        조작은 버튼 하나에 다 모았고, 앰버 링은 상태 표시등이자
+        이 제품의 유일한 장식입니다.</p>
+      </div>
+    </section>
+
+    <!-- 4. 부피 감소 (뚜껑 열림) -->
+    <section class="panel" data-cam="detail">
+      <div class="card card-right" data-reveal>
+        <p class="eyebrow">REDUCE</p>
+        <h2>2kg 이<br />140g 이 되는 밤</h2>
+        <p>건조하고, 갈아냅니다. 아침이면 부피의 93%가 사라지고
+        마른 가루만 남습니다. 스테인리스 분쇄통은 통째로 꺼내
+        물로 헹구면 끝.</p>
+      </div>
+    </section>
+
+    <!-- 5. 하루 타임라인 (솔리드 다크) -->
+    <section class="panel panel-solid panel-dark" data-cam="cycle">
+      <div class="solid-inner" data-reveal>
+        <p class="eyebrow">ONE NIGHT</p>
+        <h2 data-fill>저녁에 넣고,<br />아침에 비웁니다</h2>
+        <div class="timeline">
+          <div class="tl-item">
+            <p class="tl-time">저녁 9:00</p>
+            <p class="tl-title">넣는다</p>
+            <p class="tl-desc">설거지하다 나온 그대로 부어 넣으면 됩니다.
+            물기를 빼거나 봉투를 찾을 필요가 없습니다.</p>
+          </div>
+          <div class="tl-item">
+            <p class="tl-time">새벽 2:00</p>
+            <p class="tl-title">말리고, 갈아낸다</p>
+            <p class="tl-desc">모터가 19dB로 건조와 분쇄를 반복합니다.
+            자는 사람은 아무도 모릅니다.</p>
+          </div>
+          <div class="tl-item">
+            <p class="tl-time">아침 7:00</p>
+            <p class="tl-title">가루만 비운다</p>
+            <p class="tl-desc">남는 건 마른 가루 140g입니다. 일주일에 한 번,
+            일반 쓰레기에 털어내면 됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 냄새/필터 (솔리드 라이트) -->
+    <section class="panel panel-solid panel-light" data-cam="filter">
+      <div class="solid-inner" data-reveal>
+        <p class="eyebrow">FRESH</p>
+        <h2 data-fill>냄새는 여기서<br />끝납니다</h2>
+        <p class="solid-lede">배기가 지나는 마지막 관문에 활성탄 필터를 두었습니다.
+        건조 중의 공기도, 열고 닫는 순간의 공기도 이 층을 지나야 밖으로 나갑니다.</p>
+        <div class="stats">
+          <div class="stat"><p class="stat-num">3<span>개월</span></p><p class="stat-label">필터 교체 주기 · 원터치 탈착</p></div>
+          <div class="stat"><p class="stat-num">1<span>버튼</span></p><p class="stat-label">조작은 이게 전부 · 넣고 누르면 됩니다</p></div>
+          <div class="stat"><p class="stat-num">0<span>회</span></p><p class="stat-label">일주일 동안 봉투 묶는 횟수</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. 컨피규레이터 -->
+    <section class="panel configurator" data-cam="config" id="config">
+      <div class="config-ui" data-reveal>
+        <p class="eyebrow">CONFIGURATOR</p>
+        <h2>주방에 맞는 색을<br />고르세요</h2>
+        <p class="config-help">제품을 <strong>드래그해서 돌려보세요</strong> — 위아래로도 됩니다.
+        색을 바꾸고, 뚜껑도 열어보세요.</p>
+        <div class="config-group">
+          <p class="config-label">컬러</p>
+          <div id="swatches" class="chip-row"></div>
+        </div>
+        <div class="config-group">
+          <p class="config-label">제품 보기</p>
+          <div class="chip-row">
+            <button id="lid-toggle" class="chip">뚜껑 열어보기</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. 비교 (솔리드 다크) -->
+    <section class="panel panel-solid panel-dark" data-cam="compare">
+      <div class="solid-inner" data-reveal>
+        <p class="eyebrow">BEFORE &amp; AFTER</p>
+        <h2 data-fill>같은 일주일,<br />다른 주방</h2>
+        <div class="compare">
+          <div class="cmp-col cmp-before">
+            <p class="cmp-head">지금까지</p>
+            <ul>
+              <li>국물이 새는 봉투를 들고 엘리베이터를 기다립니다</li>
+              <li>여름엔 이틀만 지나도 냄새가 올라옵니다</li>
+              <li>일주일에 세 번, 2kg씩 들고 내려갑니다</li>
+            </ul>
+          </div>
+          <div class="cmp-col cmp-after">
+            <p class="cmp-head">비움을 쓰면</p>
+            <ul>
+              <li>조리하다 나온 그대로 부어 넣으면 됩니다</li>
+              <li>냄새는 필터가 걸러서 주방에 남지 않습니다</li>
+              <li>마른 가루 140g, 일주일에 한 번이면 충분합니다</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. 사양 + CTA -->
+    <section class="panel" data-cam="specs" id="contact">
+      <div class="specs-wrap">
+        <div class="card card-specs" data-reveal>
+          <p class="eyebrow">SPECIFICATION</p>
+          <h2>비움 원</h2>
+          <table class="specs">
+            <tr><th>처리 방식</th><td>저속 건조분쇄</td></tr>
+            <tr><th>용량</th><td>2.0 L</td></tr>
+            <tr><th>작동 소음</th><td>19 dB</td></tr>
+            <tr><th>감량률</th><td>최대 93%</td></tr>
+            <tr><th>크기</th><td>W 200 × D 270 × H 340 mm</td></tr>
+            <tr><th>탈취</th><td>활성탄 필터 (3개월 교체)</td></tr>
+          </table>
+          <div class="cta-block">
+            <p class="cta-note">이런 제품 페이지가 필요하신가요?<br />
+            브랜드에 맞춰 만들어 드립니다.</p>
+            <a class="cta" href="mailto:fa0509@naver.com?subject=%EC%9D%B8%ED%84%B0%EB%9E%99%ED%8B%B0%EB%B8%8C%20%EC%A0%9C%ED%92%88%20%ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%A0%9C%EC%9E%91%20%EB%AC%B8%EC%9D%98">이런 페이지 만들기 · 문의</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>비움 BIUM 은 인터랙티브 웹 제작 데모를 위한 <strong>가상의 브랜드</strong>입니다.
+    실존하는 어떤 음식물처리기 브랜드와도 무관하며, 실제 판매 제품이 아닙니다. 사양 수치는 데모용 허구입니다.</p>
+
+
+  </footer>
+
+</body>
+</html>
