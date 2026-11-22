@@ -8,9 +8,9 @@
   <meta property="og:title" content="무렵 — 산 아래 하루" />
   <meta property="og:description" content="스크롤로 하루가 흐르고, 방을 직접 둘러보는 독채 스테이 페이지 데모" />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8F%94%EF%B8%8F%3C/text%3E%3C/svg%3E" />
-  <script type="module" crossorigin src="./assets/index-Ct1HMdpo.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-Cf9KIFTh.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M8 84L50 16l42 68z' fill='%23a8552f'/%3E%3C/svg%3E" />
+  <script type="module" crossorigin src="./assets/index-CYz-yhmO.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BULQ0Jp8.css">
 </head>
 <body>
   <div id="loader" aria-hidden="true">
@@ -19,19 +19,19 @@
     <div class="loader-pct" id="loader-pct">0%</div>
   </div>
 
-  <!-- 사진급 스틸 레이어 (Cycles 경로추적 렌더) -->
-  <div id="stills" aria-hidden="true">
-    <img class="still" data-key="hero"    src="./stills/hero.jpg"    alt="" />
-    <img class="still" data-key="window"  src="./stills/window.jpg"  alt="" />
-    <img class="still" data-key="detail"  src="./stills/detail.jpg"  alt="" />
-    <img class="still" data-key="evening" src="./stills/evening.jpg" alt="" />
-    <img class="still" data-key="bed"     src="./stills/bed.jpg"     alt="" />
+  <!-- 장면 사진 레이어 (렌더로 만든 사진이 스크롤에 맞춰 바뀐다) -->
+  <div id="stills" role="group" aria-label="방 사진">
+    <img class="still" data-key="hero"    src="./stills/hero.jpg"    alt="큰 창 너머로 안개 낀 소나무 숲이 보이는 방 안" />
+    <img class="still" data-key="window"  src="./stills/window.jpg"  alt="숲 쪽으로 난 큰 창과 방 바닥" />
+    <img class="still" data-key="detail"  src="./stills/detail.jpg"  alt="연초록 소파와 주황 쿠션, 탁자 위 머그컵" />
+    <img class="still" data-key="evening" src="./stills/evening.jpg" alt="조명을 낮춘 저녁의 방" />
+    <img class="still" data-key="bed"     src="./stills/bed.jpg"     alt="원목 프레임 침대와 벽 선반" />
     <!-- 360 파노라마 — 화면엔 직접 안 나오고 둘러보기 구의 텍스처로 쓰인다 -->
-    <img class="still" data-key="pano"    src="./stills/pano.jpg"    alt="" />
+    <img class="still" data-key="pano"    src="./stills/pano.jpg"    alt="방 전체를 한 장에 펼친 360도 파노라마 사진" />
   </div>
 
   <!-- 실시간 360 캔버스 (둘러보기 구간에서만 등장) -->
-  <canvas id="stage" aria-hidden="true"></canvas>
+  <canvas id="stage" role="img" aria-label="방 안을 360도로 둘러보는 화면. 둘러보기 구간에서 이 영역에 초점을 두고 방향키로 시선을, + - 키로 확대·축소를 조절할 수 있습니다."></canvas>
 
   <header class="nav">
     <div class="nav-brand">무렵 <span class="nav-sub">STAY MUREOP</span></div>

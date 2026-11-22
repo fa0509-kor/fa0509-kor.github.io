@@ -8,9 +8,9 @@
   <meta property="og:title" content="비움 BIUM — 음식물처리기 원" />
   <meta property="og:description" content="스크롤이 카메라를 움직이고, 뚜껑이 열리고, 고객이 색을 고르는 인터랙티브 3D 제품 페이지 데모" />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%E2%99%BB%EF%B8%8F%3C/text%3E%3C/svg%3E" />
-  <script type="module" crossorigin src="./assets/index-Bmnc_lL5.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-VgIoBAmr.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='34' fill='none' stroke='%23a14b1b' stroke-width='16'/%3E%3C/svg%3E" />
+  <script type="module" crossorigin src="./assets/index-C7XVBxUj.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-rrdhRTWg.css">
 </head>
 <body>
   <!-- 로딩 -->
@@ -20,19 +20,19 @@
     <div class="loader-pct" id="loader-pct">0%</div>
   </div>
 
-  <!-- 사진급 스틸 레이어 (Cycles 경로추적 렌더) -->
-  <div id="stills" aria-hidden="true">
-    <img class="still" data-key="hero"   src="./stills/hero.jpg"   alt="" />
-    <img class="still" data-key="night"  src="./stills/night.jpg"  alt="" />
-    <img class="still" data-key="craft"  src="./stills/quiet.jpg"  alt="" />
-    <img class="still" data-key="detail" src="./stills/inside.jpg" alt="" />
-    <img class="still" data-key="specs"  src="./stills/rear.jpg"   alt="" />
+  <!-- 장면 사진 레이어 (렌더로 만든 사진이 스크롤에 맞춰 바뀐다) -->
+  <div id="stills" role="group" aria-label="제품 사진">
+    <img class="still" data-key="hero"   src="./stills/hero.jpg"   alt="주방 조리대 위에 놓인 흰색 음식물처리기 비움 원" />
+    <img class="still" data-key="night"  src="./stills/night.jpg"  alt="불을 끈 밤 주방에서 앰버 불빛이 켜진 비움 원" />
+    <img class="still" data-key="craft"  src="./stills/quiet.jpg"  alt="비움 원의 조작 패널. 둥근 시작 버튼과 표시등을 가까이서 찍은 모습" />
+    <img class="still" data-key="detail" src="./stills/inside.jpg" alt="뚜껑을 연 비움 원의 안쪽 금속 통" />
+    <img class="still" data-key="specs"  src="./stills/rear.jpg"   alt="타일 벽 주방 조리대 위에 놓인 비움 원 전경" />
     <!-- 컨피규레이터 배경판 — 화면엔 직접 안 나오고 3D 씬의 배경 텍스처로 쓰인다 -->
-    <img class="still" data-key="config" src="./stills/config.jpg" alt="" />
+    <img class="still" data-key="config" src="./stills/config.jpg" alt="3D 모델 뒤에 깔리는 빈 주방 조리대 배경" />
   </div>
 
   <!-- 실시간 3D 캔버스 (컨피규레이터 구간에서만 등장) -->
-  <canvas id="stage" aria-hidden="true"></canvas>
+  <canvas id="stage" role="img" aria-label="비움 원의 3D 모델. 색 고르기 구간에서 이 영역에 초점을 두고 방향키로 돌려볼 수 있습니다."></canvas>
 
   <!-- 네비 -->
   <header class="nav">

@@ -8,9 +8,9 @@
   <meta property="og:title" content="살림 — 오래 쓸 물건" />
   <meta property="og:description" content="상품을 실물 그대로 3D로 돌려보는 셀렉트숍 페이지 데모" />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8F%BA%3C/text%3E%3C/svg%3E" />
-  <script type="module" crossorigin src="./assets/index-DW2PxenQ.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-C52Tj2av.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M18 84V46a32 32 0 0 1 64 0v38z' fill='%23a44c27'/%3E%3C/svg%3E" />
+  <script type="module" crossorigin src="./assets/index-B8uzrHis.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BCUnf5QN.css">
 </head>
 <body>
   <div id="loader" aria-hidden="true">
@@ -19,18 +19,18 @@
     <div class="loader-pct" id="loader-pct">0%</div>
   </div>
 
-  <!-- 사진급 스틸 레이어 (Cycles 경로추적 렌더) -->
-  <div id="stills" aria-hidden="true">
-    <img class="still" data-key="hero"    src="./stills/hero.jpg"          alt="" />
-    <img class="still" data-key="leather" src="./stills/macro_leather.jpg" alt="" />
-    <img class="still" data-key="blue"    src="./stills/macro_blue.jpg"    alt="" />
-    <img class="still" data-key="contact" src="./stills/macro_weave.jpg"   alt="" />
+  <!-- 장면 사진 레이어 (렌더로 만든 사진이 스크롤에 맞춰 바뀐다) -->
+  <div id="stills" role="group" aria-label="물건 사진">
+    <img class="still" data-key="hero"    src="./stills/hero.jpg"          alt="마루 위에 놓인 가죽 라운지체어, 주황 램프, 사이드 테이블, 화병, 바구니" />
+    <img class="still" data-key="leather" src="./stills/macro_leather.jpg" alt="가죽 라운지체어 등받이의 주름과 결을 확대한 모습" />
+    <img class="still" data-key="blue"    src="./stills/macro_blue.jpg"    alt="청화 무늬 항아리" />
+    <img class="still" data-key="contact" src="./stills/macro_weave.jpg"   alt="뚜껑을 열어 둔 라탄 바구니" />
     <!-- 3D 뷰어 뒤에 깔리는 배경판 — 화면에 직접 노출되지 않는다 -->
     <img class="still" data-key="plate"   src="./stills/plate.jpg"         alt="" style="display:none" />
   </div>
 
   <!-- 실시간 3D 캔버스 (뷰어 구간에서만 떠오른다) -->
-  <canvas id="stage" aria-hidden="true"></canvas>
+  <canvas id="stage" role="img" aria-label="선택한 물건의 3D 모델. 돌려보기 구간에서 이 영역에 초점을 두고 방향키로 돌려볼 수 있습니다."></canvas>
 
   <header class="nav">
     <div class="nav-brand">살림 <span class="nav-sub">SELECT SHOP SALLIM</span></div>

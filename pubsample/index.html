@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한땀 제본소 — 손으로 꿰매서 끝까지 펴지는 노트</title>
+<meta name="description" content="가상의 주문 제본 공방 '한땀 제본소'의 랜딩 페이지 데모. 한 장짜리 시안을 반응형 HTML로 옮기고 스크롤 연출을 넣은 퍼블리싱 샘플입니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%231d1c1a'/%3E%3Crect x='3' width='2' height='16' fill='%23b03a25'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/pretendard-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("anim")</script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">한땀 제본소</a>
+    <nav aria-label="구간 이동">
+      <a href="#methods">제본 방식</a>
+      <a href="#steps">만드는 순서</a>
+      <a href="#price">가격과 일정</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="h-hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <p class="lab rv">주문 제본 · 노트 · 방명록</p>
+        <h1 id="h-hero" class="rv" style="--d:.08s">손으로 꿰매서<br>끝까지 펴지는 노트</h1>
+        <p class="copy rv" style="--d:.16s">접지를 한 묶음씩 실로 꿰매 책등에 붙이기 때문에, 180도로 펴도 책등이 갈라지지 않습니다. 표지 천과 속지 종이를 고르면 한 권씩 만들어 드립니다.</p>
+        <button class="btn rv" style="--d:.24s" type="button" aria-expanded="false" aria-controls="inquiry-note" id="inquiry-btn">문의 방법 보기</button>
+        <p class="note" id="inquiry-note" hidden>이 페이지는 제작 시연용 데모라 문의 창구가 없습니다. 실제 의뢰에서는 이 자리에 고객사의 문의 수단이 들어갑니다.</p>
+        <ul class="facts rv" style="--d:.32s">
+          <li><b>A5</b><span>기본 규격</span></li>
+          <li><b>96쪽</b><span>기본 쪽수</span></li>
+          <li><b>7일</b><span>제작 기간 (데모값)</span></li>
+        </ul>
+      </div>
+      <div class="hero-art rv" style="--d:.2s">
+        <svg viewBox="0 0 520 520" role="img" aria-labelledby="t-hero">
+          <title id="t-hero">검은 표지의 A5 노트. 책등을 따라 붉은 실 땀이 보이고, 표지에는 '한땀 제본소 노트 A5' 라벨이 붙어 있다.</title>
+          <defs><pattern id="pl" width="16" height="10" patternUnits="userSpaceOnUse"><line x1="0" y1="5" x2="16" y2="5" class="s-ink" stroke-width="1.5"/></pattern></defs>
+          <line x1="40" y1="480" x2="480" y2="480" class="s-ink" stroke-width="2"/>
+          <rect x="110" y="50" width="300" height="430" class="f-ink"/>
+          <rect x="410" y="60" width="16" height="410" style="fill:url(#pl)" class="s-ink" stroke-width="2"/>
+          <line x1="132" y1="76" x2="132" y2="454" class="s-red" stroke-width="5" stroke-dasharray="48 22"/>
+          <rect x="170" y="120" width="190" height="120" class="f-paper"/>
+          <text x="190" y="180" font-size="44" font-weight="800" class="f-ink">한땀</text>
+          <text x="190" y="214" font-size="15" class="f-ink">제본소 노트 A5</text>
+          <rect x="372" y="440" width="14" height="66" class="f-red"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="methods" aria-labelledby="h-methods">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="lab">제본 방식</p>
+        <h2 id="h-methods">제본 방식은 세 가지입니다</h2>
+        <p class="lead">쓰임새에 따라 맞는 방식이 다릅니다. 주문을 받으면 어디에 쓰는 노트인지 먼저 묻고 권합니다.</p>
+      </div>
+      <div class="methods">
+        <article class="method rv">
+          <svg viewBox="0 0 373 220" role="img" aria-label="사철제본 단면 그림: 여섯 묶음의 속지를 붉은 실 하나가 꿰고 있다.">
+            <g class="f-paper s-ink" stroke-width="2"><rect x="90" y="24" width="190" height="22"/><rect x="90" y="54" width="190" height="22"/><rect x="90" y="84" width="190" height="22"/><rect x="90" y="114" width="190" height="22"/><rect x="90" y="144" width="190" height="22"/><rect x="90" y="174" width="190" height="22"/></g>
+            <line x1="108" y1="14" x2="108" y2="206" class="s-red" stroke-width="3"/>
+            <g class="f-red"><circle cx="108" cy="35" r="5"/><circle cx="108" cy="65" r="5"/><circle cx="108" cy="95" r="5"/><circle cx="108" cy="125" r="5"/><circle cx="108" cy="155" r="5"/><circle cx="108" cy="185" r="5"/></g>
+          </svg>
+          <p class="lab">01</p>
+          <h3>사철제본 (실로 꿰맴)</h3>
+          <p class="p">접지 묶음을 실로 하나씩 엮습니다. 180도로 펴지고 오래 써도 낱장이 빠지지 않습니다. 일기장, 스케치북에 권합니다.</p>
+        </article>
+        <article class="method rv" style="--d:.1s">
+          <svg viewBox="0 0 373 220" role="img" aria-label="무선제본 단면 그림: 속지 한 덩어리의 책등에 붉은 접착면이 붙어 있다.">
+            <defs><pattern id="pm" width="10" height="10" patternUnits="userSpaceOnUse"><line x1="0" y1="5" x2="10" y2="5" class="s-ink" stroke-width="1.5"/></pattern></defs>
+            <rect x="92" y="24" width="188" height="176" style="fill:url(#pm)" class="s-ink" stroke-width="2"/>
+            <rect x="80" y="24" width="14" height="176" class="f-red"/>
+          </svg>
+          <p class="lab">02</p>
+          <h3>무선제본 (접착)</h3>
+          <p class="p">책등을 풀로 붙입니다. 얇고 값이 낮지만 완전히 펴지지 않고, 많이 접으면 낱장이 빠집니다. 한 번 쓰고 마는 소책자에 맞습니다.</p>
+        </article>
+        <article class="method rv" style="--d:.2s">
+          <svg viewBox="0 0 373 220" role="img" aria-label="링제본 단면 그림: 속지 왼쪽 가장자리에 붉은 링 다섯 개가 끼워져 있다.">
+            <defs><pattern id="pr" width="10" height="10" patternUnits="userSpaceOnUse"><line x1="0" y1="5" x2="10" y2="5" class="s-ink" stroke-width="1.5"/></pattern></defs>
+            <rect x="112" y="24" width="168" height="176" style="fill:url(#pr)" class="s-ink" stroke-width="2"/>
+            <g class="s-red nf" stroke-width="3.5"><circle cx="112" cy="42" r="10"/><circle cx="112" cy="76" r="10"/><circle cx="112" cy="110" r="10"/><circle cx="112" cy="144" r="10"/><circle cx="112" cy="178" r="10"/></g>
+          </svg>
+          <p class="lab">03</p>
+          <h3>링제본 (철 링)</h3>
+          <p class="p">구멍을 뚫어 링으로 꿰고 360도 접습니다. 쪽을 빼고 끼울 수 있어 플래너나 레시피 모음에 맞습니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="steps" aria-labelledby="h-steps">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="lab">만드는 순서</p>
+        <h2 id="h-steps">한 권이 나오는 순서</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="stage">
+          <svg id="stage-svg" viewBox="0 0 480 480" role="img" aria-label="제본 과정 그림. 스크롤하면 접지, 구멍, 실 꿰기, 표지 순서로 한 단계씩 그려진다.">
+            <g data-from="4"><rect x="84" y="46" width="312" height="388" class="f-ink"/><rect x="84" y="46" width="22" height="388" class="f-red"/></g>
+            <g class="f-paper s-ink" stroke-width="2"><rect x="124" y="76" width="250" height="44"/><rect x="124" y="132" width="250" height="44"/><rect x="124" y="188" width="250" height="44"/><rect x="124" y="244" width="250" height="44"/><rect x="124" y="300" width="250" height="44"/><rect x="124" y="356" width="250" height="44"/></g>
+            <g class="s-ink" stroke-width="1.5"><line x1="249" y1="76" x2="249" y2="120"/><line x1="249" y1="132" x2="249" y2="176"/><line x1="249" y1="188" x2="249" y2="232"/><line x1="249" y1="244" x2="249" y2="288"/><line x1="249" y1="300" x2="249" y2="344"/><line x1="249" y1="356" x2="249" y2="400"/></g>
+            <g class="f-ink" data-from="2"><circle cx="142" cy="98" r="4"/><circle cx="142" cy="154" r="4"/><circle cx="142" cy="210" r="4"/><circle cx="142" cy="266" r="4"/><circle cx="142" cy="322" r="4"/><circle cx="142" cy="378" r="4"/></g>
+            <g class="s-red" stroke-width="4" data-from="3"><line x1="96" y1="60" x2="96" y2="420"/><line x1="96" y1="98" x2="142" y2="98"/><line x1="96" y1="154" x2="142" y2="154"/><line x1="96" y1="210" x2="142" y2="210"/><line x1="96" y1="266" x2="142" y2="266"/><line x1="96" y1="322" x2="142" y2="322"/><line x1="96" y1="378" x2="142" y2="378"/></g>
+          </svg>
+        </div>
+        <ol class="steps" style="list-style:none">
+          <li class="step" data-n="1">
+            <p class="lab">1 / 4</p>
+            <h3>접지</h3>
+            <p class="p">속지 4장을 겹쳐 반으로 접으면 16쪽 한 묶음이 됩니다. 96쪽 노트는 6묶음입니다.</p>
+          </li>
+          <li class="step" data-n="2">
+            <p class="lab">2 / 4</p>
+            <h3>구멍 뚫기</h3>
+            <p class="p">묶음마다 접힌 선을 따라 송곳으로 구멍 5개를 뚫습니다. 구멍 위치가 어긋나면 책등이 틀어지므로 형틀에 맞춰 뚫습니다.</p>
+          </li>
+          <li class="step" data-n="3">
+            <p class="lab">3 / 4</p>
+            <h3>꿰매기</h3>
+            <p class="p">아래 묶음부터 한 땀씩 실을 통과시켜 위 묶음과 엮습니다. 실은 밀랍을 먹인 마사를 씁니다.</p>
+          </li>
+          <li class="step" data-n="4">
+            <p class="lab">4 / 4</p>
+            <h3>표지</h3>
+            <p class="p">엮은 속지에 표지 천을 입히고 하루 눌러 말립니다. 눌러 말리는 시간까지 제작 기간에 들어 있습니다.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" id="price" aria-labelledby="h-price">
+    <div class="wrap">
+      <div class="rv">
+        <p class="lab">가격표</p>
+        <h2 id="h-price">가격과 일정</h2>
+        <p class="lead">아래 금액과 일정은 시연용 데모값입니다. 실제 의뢰의 가격표는 고객사 기준으로 바뀝니다.</p>
+      </div>
+      <table class="rv">
+        <caption class="sr" style="position:absolute;left:-9999px">한땀 제본소 가격과 제작 기간 (데모값)</caption>
+        <colgroup><col style="width:45%"><col style="width:15%"><col style="width:20%"><col style="width:20%"></colgroup>
+        <thead><tr><th scope="col">항목</th><th scope="col">쪽수</th><th scope="col">금액</th><th scope="col">제작 기간</th></tr></thead>
+        <tbody>
+          <tr><td>사철제본 노트 A5</td><td>96쪽</td><td>18,000원</td><td>7일</td></tr>
+          <tr><td>사철제본 노트 B6</td><td>96쪽</td><td>15,000원</td><td>7일</td></tr>
+          <tr><td>방명록 A4</td><td>144쪽</td><td>34,000원</td><td>10일</td></tr>
+          <tr><td>표지에 이름 박기</td><td>추가</td><td>+3,000원</td><td>+1일</td></tr>
+        </tbody>
+      </table>
+      <p class="tnote">모든 금액은 부가세 포함 데모값입니다.</p>
+    </div>
+  </section>
+
+  <section class="sec faq" id="faq" aria-labelledby="h-faq" style="border-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="lab">문답</p>
+        <h2 id="h-faq">자주 묻는 것</h2>
+      </div>
+      <dl class="qa-list">
+        <div class="qa rv"><dt>속지 종이를 고를 수 있나요</dt><dd>미색 모조지 100g, 크림색 100g, 백색 120g 세 가지 중에서 고릅니다. 줄지·모눈·무지 중 선택합니다.</dd></div>
+        <div class="qa rv"><dt>한 권만 주문해도 되나요</dt><dd>됩니다. 이 페이지에서는 최소 수량을 1권으로 가정했습니다.</dd></div>
+        <div class="qa rv"><dt>표지 천은 어떻게 고르나요</dt><dd>면 캔버스 3종 중에서 고릅니다. 천 색은 모니터마다 다르게 보여서, 실제 운영이라면 실물 천 견본 사진을 함께 올립니다.</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <strong>한땀 제본소</strong>
+    <p>자체 제작 데모이며 브랜드는 가상입니다. 실존하는 가게·상표와 무관하고, 가격·일정·수량은 모두 데모값입니다. 이 페이지에는 문의·SNS 등 연락 수단이 없습니다.</p>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
